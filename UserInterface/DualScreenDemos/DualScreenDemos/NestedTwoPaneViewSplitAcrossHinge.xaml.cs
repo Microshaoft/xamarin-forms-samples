@@ -17,11 +17,5 @@ namespace DualScreenDemos
 		{
 			InitializeComponent();
 		}
-
-		void TwoPaneView_LayoutChanged(object sender, EventArgs e)
-		{
-			var thing = (TwoPaneView)sender;
-			System.Diagnostics.Debug.WriteLine($"{Device.info.ScaledScreenSize} {thing.Bounds}");
-		}
 	}
 }

@@ -65,6 +65,4 @@ namespace DualScreenDemos
 			Pane2Length.Value = 0.5;
 		}
 	}
-
-	public class HingeAngleLabel : Label { }
 }

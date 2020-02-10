@@ -28,7 +28,7 @@ namespace DualScreenDemos
             InitializeComponent();
             DualScreenLayoutInfo = new DualScreenInfo(layout);
 
-            cv.ItemsSource =
+			cv.ItemsSource =
                 Enumerable.Range(0, 1000)
                     .Select(i => $"Page {i}")
                     .ToList();

@@ -34,8 +34,15 @@ namespace DualScreenDemos
 			}
 		}
 
-		async void Button_Clicked(object sender, EventArgs e)
+		async void OpenCompactWindowClicked(object sender, EventArgs e)
 		{
+            if(!DualScreenHelper.HasCompactModeSupport())
+            {
+				await DisplayAlert("Unsupported", "This platform doesn't support this feature", "Ok");
+
+				return;
+            }
+
 			ContentPage page = new ContentPage() { BackgroundColor = Color.Purple };
 			var button = new Button()
 			{
@@ -56,12 +63,12 @@ namespace DualScreenDemos
 
 			page.Content = new ScrollView() { Content = layout };
 
-			//var args = await DualScreen.DualScreenHelper.OpenCompactMode(page);
+            var args = await DualScreenHelper.OpenCompactMode(page);
 
-			//button.Command = new Command(async () =>
-			//{
-			//	await args.CloseAsync();
-			//});
-		}
+            button.Command = new Command(async () =>
+            {
+                await args.CloseAsync();
+            });
+        }
 	}
 }

@@ -8,7 +8,7 @@
     <ContentPage.Content>
         <StackLayout x:Name="layout">
             <Button x:Name="button" Text="Open Compact Window"
-                Clicked="Button_Clicked"
+                Clicked="OpenCompactWindowClicked"
                 VerticalOptions="Start" 
                 HorizontalOptions="Start" />
         </StackLayout>
