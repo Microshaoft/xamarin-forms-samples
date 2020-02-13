@@ -18,7 +18,7 @@ namespace MediaElementDemos
 
             Device.StartTimer(TimeSpan.FromMilliseconds(100), () =>
             {
-                Device.InvokeOnMainThreadAsync(() =>
+                Device.BeginInvokeOnMainThread(() =>
                 {
                     positionLabel.Text = mediaElement.Position.ToString("mm\\:ss\\.ff");
                 });
