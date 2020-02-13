@@ -14,28 +14,12 @@
                       Grid.Row="0"
                       AutoPlay="False"
                       Source="{StaticResource AsyncVoid}" />
-
-        <!--<ActivityIndicator Grid.Row="0"
-                           Color="Gray"
-                           IsVisible="False">
-            <ActivityIndicator.Triggers>
-                <DataTrigger TargetType="ActivityIndicator"
-                             Binding="{Binding Source={x:Reference mediaElement}, 
-                                               Path=CurrentState}"
-                             Value="{x:Static MediaElementState.Closed}">
-                    <Setter Property="IsVisible" Value="True" />
-                    <Setter Property="IsRunning" Value="True" />
-                </DataTrigger>
-            </ActivityIndicator.Triggers>
-        </ActivityIndicator>-->
-
         <StackLayout Grid.Row="1"
                      Orientation="Horizontal"
                      Margin="10, 0"
                      BindingContext="{x:Reference mediaElement}">
-            <!--<Label Text="{Binding Path=Position,
-                                  StringFormat='{0:hh\\:mm\\:ss}'}"
-                   VerticalOptions="Center" />-->
+            <Label x:Name="positionLabel"
+                   VerticalOptions="Center" />
             <Button Text="&#x25B6;&#xFE0F; Play"
                     HorizontalOptions="CenterAndExpand"
                     Clicked="OnPlayPauseButtonClicked">
