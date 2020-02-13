@@ -7,5 +7,9 @@
                   AutoPlay="True"
                   Aspect="AspectFit"
                   HorizontalOptions="Fill"
-                  ShowsPlaybackControls="True" />
+                  ShowsPlaybackControls="True"
+                  MediaOpened="OnMediaOpened"
+                  MediaFailed="OnMediaFailed"
+                  MediaEnded="OnMediaEnded"
+                  SeekCompleted="OnSeekCompleted" />
 </ContentPage>
