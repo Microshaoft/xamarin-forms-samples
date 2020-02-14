@@ -2,9 +2,9 @@
 
 namespace MediaElementDemos
 {
-    public partial class PlayLocalVideoResourcePage : ContentPage
+    public partial class PlayAppFileVideoResourcePage : ContentPage
     {
-        public PlayLocalVideoResourcePage()
+        public PlayAppFileVideoResourcePage()
         {
             InitializeComponent();
         }
