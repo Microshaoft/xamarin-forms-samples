@@ -6,13 +6,12 @@ namespace MediaElementDemos.Helpers
 {
     public class FileAccess
     {
+        // This method copies the video from the app package to the app data
+        // directory for your app. To copy the video to the temp directory
+        // for your app, comment out the first line of code, and uncomment
+        // the second line of code.
         public static async Task CopyVideoIfNotExists(string filename)
         {
-            // This method copies the video from the app package to the app data
-            // directory for your app. To copy the video to the temp directory
-            // for your app, comment out the first line of code, and uncomment
-            // the second line of code.
-
             string folder = FileSystem.AppDataDirectory;
             //string folder = Path.GetTempPath();
             string videoFile = Path.Combine(folder, "XamarinVideo.mp4");
