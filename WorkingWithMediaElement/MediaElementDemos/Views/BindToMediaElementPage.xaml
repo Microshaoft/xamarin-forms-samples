@@ -11,9 +11,7 @@
         </Grid.RowDefinitions>
         <MediaElement Grid.Row="0"
                       Source="{Binding Source={x:Reference collectionView}, Path=SelectedItem.Source}"
-                      ShowsPlaybackControls="True"
-                      Aspect="AspectFit"
-                      HorizontalOptions="Fill" />
+                      ShowsPlaybackControls="True" />
         <CollectionView x:Name="collectionView"
                         Grid.Row="1"
                         Margin="20"

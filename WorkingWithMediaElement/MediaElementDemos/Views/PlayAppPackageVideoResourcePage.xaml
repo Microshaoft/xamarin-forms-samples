@@ -4,8 +4,5 @@
              x:Class="MediaElementDemos.PlayAppPackageVideoResourcePage"
              Title="Play app package video resource">
     <MediaElement Source="ms-appx:///XamarinForms101UsingEmbeddedImages.mp4"
-                  AutoPlay="True"
-                  Aspect="AspectFit"
-                  HorizontalOptions="Fill"
                   ShowsPlaybackControls="True"  />
 </ContentPage>

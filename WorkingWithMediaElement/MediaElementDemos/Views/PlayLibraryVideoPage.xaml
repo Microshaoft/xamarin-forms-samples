@@ -10,9 +10,7 @@
         </Grid.RowDefinitions>
         <MediaElement x:Name="mediaElement"
                       Grid.Row="0"
-                      ShowsPlaybackControls="True"
-                      Aspect="AspectFit"
-                      HorizontalOptions="Fill" />
+                      ShowsPlaybackControls="True" />
         <Button Grid.Row="1"
                 Margin="10"
                 Text="Show video library"                

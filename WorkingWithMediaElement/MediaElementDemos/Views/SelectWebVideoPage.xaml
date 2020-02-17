@@ -10,9 +10,7 @@
         </Grid.RowDefinitions>
         <MediaElement x:Name="mediaElement"
                       Grid.Row="0"
-                      ShowsPlaybackControls="True"
-                      Aspect="AspectFit"
-                      HorizontalOptions="Fill" />
+                      ShowsPlaybackControls="True" />
         <CollectionView Grid.Row="1"
                         Margin="20"
                         SelectionMode="Single"
