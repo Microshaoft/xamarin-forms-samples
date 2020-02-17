@@ -10,9 +10,7 @@
     class to store the video file in the temp folder.
     -->
     <MediaElement Source="ms-appdata:///local/XamarinVideo.mp4"
-                  AutoPlay="True"
                   ShowsPlaybackControls="True"  />
     <!--<MediaElement Source="ms-appdata:///temp/XamarinVideo.mp4"
-                  AutoPlay="True"
                   ShowsPlaybackControls="True"  />-->
 </ContentPage>
