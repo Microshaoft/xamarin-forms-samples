@@ -10,18 +10,27 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.25*" />
+            <ColumnDefinition Width="0.25*" />
+            <ColumnDefinition Width="0.25*" />
+            <ColumnDefinition Width="0.25*" />
+        </Grid.ColumnDefinitions>
         <MediaElement x:Name="mediaElement"
                       Grid.Row="0"
+                      Grid.ColumnSpan="4"
                       AutoPlay="False"
                       Source="{StaticResource AsyncVoid}" />
-        <StackLayout Grid.Row="1"
-                     Orientation="Horizontal"
-                     Margin="10, 0"
-                     BindingContext="{x:Reference mediaElement}">
-            <!--<Label x:Name="positionLabel"
-                   VerticalOptions="Center" />-->
-            <Button Text="&#x25B6;&#xFE0F; Play"
-                    HorizontalOptions="CenterAndExpand"
+        <Grid Grid.Row="1"
+              Grid.ColumnSpan="4"
+              BindingContext="{x:Reference mediaElement}">
+            <Label x:Name="positionLabel"
+                   Margin="10,0"
+                   Text="00:00:00"
+                   VerticalOptions="Center" />
+            <Button Grid.Column="1"
+                    Text="&#x25B6;&#xFE0F; Play"
+                    HorizontalOptions="Start"
                     Clicked="OnPlayPauseButtonClicked">
                 <Button.Triggers>
                     <DataTrigger TargetType="Button"
@@ -36,8 +45,9 @@
                     </DataTrigger>
                 </Button.Triggers>
             </Button>
-            <Button Text="&#x23F9; Stop"
-                    HorizontalOptions="CenterAndExpand"
+            <Button Grid.Column="2"
+                    Text="&#x23F9; Stop"
+                    HorizontalOptions="Start"
                     Clicked="OnStopButtonClicked">
                 <Button.Triggers>
                     <DataTrigger TargetType="Button"
@@ -47,13 +57,18 @@
                     </DataTrigger>
                 </Button.Triggers>
             </Button>
-        </StackLayout>
+            <Label Grid.Column="3"
+                   Margin="10,0"
+                   Text="{Binding Source={x:Reference positionSlider}, Path=TimeToEnd, StringFormat='{0:hh\\:mm\\:ss}'}"
+                   VerticalOptions="Center" />
+        </Grid>
         <controls:PositionSlider x:Name="positionSlider"
                                  Grid.Row="2"
+                                 Grid.ColumnSpan="4"
                                  Margin="20,0,10,20"
                                  BindingContext="{x:Reference mediaElement}"
                                  Duration="{Binding Duration}"
-                                 Position="{Binding Position}">
+                                 ValueChanged="OnPositionSliderValueChanged">
             <controls:PositionSlider.Triggers>
                 <DataTrigger TargetType="controls:PositionSlider"
                              Binding="{Binding CurrentState}"

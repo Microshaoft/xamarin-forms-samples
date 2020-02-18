@@ -9,6 +9,7 @@ namespace MediaElementDemos.Controls
             BindableProperty.Create(nameof(Duration), typeof(TimeSpan), typeof(PositionSlider), new TimeSpan(1),
                                     propertyChanged: (bindable, oldValue, newValue) =>
                                     {
+                                        ((PositionSlider)bindable).SetTimeToEnd();
                                         double seconds = ((TimeSpan)newValue).TotalSeconds;
                                         ((Slider)bindable).Maximum = seconds <= 0 ? 1 : seconds;
                                     });
@@ -21,17 +22,34 @@ namespace MediaElementDemos.Controls
 
         public static readonly BindableProperty PositionProperty =
             BindableProperty.Create(nameof(Position), typeof(TimeSpan), typeof(PositionSlider), new TimeSpan(0),
-                                    defaultBindingMode: BindingMode.TwoWay,
-                                    propertyChanged: (bindable, oldValue, newValue) =>
-                                    {
-                                        double seconds = ((TimeSpan)newValue).TotalSeconds;
-                                        ((Slider)bindable).Value = seconds;
-                                    });
+                                    propertyChanged: (bindable, oldValue, newValue) => ((PositionSlider)bindable).SetTimeToEnd());
+                                     //defaultBindingMode: BindingMode.TwoWay);
+                                    //propertyChanged: (bindable, oldValue, newValue) =>
+                                    //{
+                                    //    double seconds = ((TimeSpan)newValue).TotalSeconds;
+                                    //    ((Slider)bindable).Value = seconds;
+                                    //});
 
         public TimeSpan Position
         {
             get { return (TimeSpan)GetValue(PositionProperty); }
             set { SetValue(PositionProperty, value); }
+        }
+
+        static readonly BindablePropertyKey TimeToEndPropertyKey =
+            BindableProperty.CreateReadOnly(nameof(TimeToEnd), typeof(TimeSpan), typeof(PositionSlider), new TimeSpan());
+
+        public static readonly BindableProperty TimeToEndProperty = TimeToEndPropertyKey.BindableProperty;
+
+        public TimeSpan TimeToEnd
+        {
+            get { return (TimeSpan)GetValue(TimeToEndProperty); }
+            private set { SetValue(TimeToEndPropertyKey, value); }
+        }
+
+        void SetTimeToEnd()
+        {
+            TimeToEnd = Duration - Position;
         }
 
         public PositionSlider()

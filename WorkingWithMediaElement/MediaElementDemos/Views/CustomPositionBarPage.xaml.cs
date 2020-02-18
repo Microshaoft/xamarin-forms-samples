@@ -5,33 +5,36 @@ namespace MediaElementDemos
 {
     public partial class CustomPositionBarPage : ContentPage
     {
-        //bool polling = true;
+        bool polling = true;
 
         public CustomPositionBarPage()
         {
             InitializeComponent();
         }
 
-        //protected override void OnAppearing()
-        //{
-        //    base.OnAppearing();
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
 
-        //    Device.StartTimer(TimeSpan.FromMilliseconds(100), () =>
-        //    {
-        //        Device.BeginInvokeOnMainThread(() =>
-        //        {
-        //            positionLabel.Text = mediaElement.Position.ToString("mm\\:ss\\.ff");
-        //            //positionSlider.Position = mediaElement.Position;
-        //        });
-        //        return polling;
-        //    });
-        //}
+            Device.StartTimer(TimeSpan.FromMilliseconds(100), () =>
+            {
+                Device.BeginInvokeOnMainThread(() =>
+                {
+                    if (mediaElement.CurrentState == MediaElementState.Playing)
+                    {
+                        positionLabel.Text = mediaElement.Position.ToString("hh\\:mm\\:ss");
+                        positionSlider.Position = mediaElement.Position;
+                    }
+                });
+                return polling;
+            });
+        }
 
-        //protected override void OnDisappearing()
-        //{
-        //    base.OnDisappearing();
-        //    polling = false;
-        //}
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+            polling = false;
+        }
 
         void OnPlayPauseButtonClicked(object sender, EventArgs args)
         {
@@ -50,6 +53,14 @@ namespace MediaElementDemos
         void OnStopButtonClicked(object sender, EventArgs args)
         {
             mediaElement.Stop();
+        }
+
+        void OnPositionSliderValueChanged(System.Object sender, Xamarin.Forms.ValueChangedEventArgs e)
+        {
+            polling = false;
+            mediaElement.Position = positionSlider.Position;
+            positionLabel.Text = mediaElement.Position.ToString("hh\\:mm\\:ss");
+            polling = true;
         }
     }
 }
