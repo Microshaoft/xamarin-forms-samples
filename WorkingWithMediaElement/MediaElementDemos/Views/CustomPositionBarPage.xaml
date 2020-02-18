@@ -18,8 +18,8 @@
                      Orientation="Horizontal"
                      Margin="10, 0"
                      BindingContext="{x:Reference mediaElement}">
-            <Label x:Name="positionLabel"
-                   VerticalOptions="Center" />
+            <!--<Label x:Name="positionLabel"
+                   VerticalOptions="Center" />-->
             <Button Text="&#x25B6;&#xFE0F; Play"
                     HorizontalOptions="CenterAndExpand"
                     Clicked="OnPlayPauseButtonClicked">
@@ -48,10 +48,11 @@
                 </Button.Triggers>
             </Button>
         </StackLayout>
-        <controls:PositionSlider Grid.Row="2"
+        <controls:PositionSlider x:Name="positionSlider"
+                                 Grid.Row="2"
                                  Margin="20,0,10,20"
                                  BindingContext="{x:Reference mediaElement}"
-                                 Duration="{Binding Duration}"           
+                                 Duration="{Binding Duration}"
                                  Position="{Binding Position}">
             <controls:PositionSlider.Triggers>
                 <DataTrigger TargetType="controls:PositionSlider"

@@ -5,32 +5,33 @@ namespace MediaElementDemos
 {
     public partial class CustomPositionBarPage : ContentPage
     {
-        bool polling = true;
+        //bool polling = true;
 
         public CustomPositionBarPage()
         {
             InitializeComponent();
         }
 
-        protected override void OnAppearing()
-        {
-            base.OnAppearing();
+        //protected override void OnAppearing()
+        //{
+        //    base.OnAppearing();
 
-            Device.StartTimer(TimeSpan.FromMilliseconds(100), () =>
-            {
-                Device.BeginInvokeOnMainThread(() =>
-                {
-                    positionLabel.Text = mediaElement.Position.ToString("mm\\:ss\\.ff");
-                });
-                return polling;
-            });
-        }
+        //    Device.StartTimer(TimeSpan.FromMilliseconds(100), () =>
+        //    {
+        //        Device.BeginInvokeOnMainThread(() =>
+        //        {
+        //            positionLabel.Text = mediaElement.Position.ToString("mm\\:ss\\.ff");
+        //            //positionSlider.Position = mediaElement.Position;
+        //        });
+        //        return polling;
+        //    });
+        //}
 
-        protected override void OnDisappearing()
-        {
-            base.OnDisappearing();
-            polling = false;
-        }
+        //protected override void OnDisappearing()
+        //{
+        //    base.OnDisappearing();
+        //    polling = false;
+        //}
 
         void OnPlayPauseButtonClicked(object sender, EventArgs args)
         {
