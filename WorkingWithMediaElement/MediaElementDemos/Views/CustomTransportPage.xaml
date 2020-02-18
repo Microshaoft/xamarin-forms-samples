@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MediaElementDemos.CustomTransportPage"
-             Title="Custom transport">
+             Title="Custom transport controls">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />

@@ -62,7 +62,6 @@ namespace MediaElementDemos.Controls
             };
         }
 
-
         void SetTimeToEnd()
         {
             TimeToEnd = Duration - Position;
