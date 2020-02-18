@@ -47,11 +47,6 @@ namespace MediaElementDemos.Controls
             private set { SetValue(TimeToEndPropertyKey, value); }
         }
 
-        void SetTimeToEnd()
-        {
-            TimeToEnd = Duration - Position;
-        }
-
         public PositionSlider()
         {
             PropertyChanged += (sender, args) =>
@@ -65,6 +60,12 @@ namespace MediaElementDemos.Controls
                     }
                 }
             };
+        }
+
+
+        void SetTimeToEnd()
+        {
+            TimeToEnd = Duration - Position;
         }
     }
 }

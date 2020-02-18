@@ -16,7 +16,7 @@ namespace MediaElementDemos
         {
             base.OnAppearing();
 
-            Device.StartTimer(TimeSpan.FromMilliseconds(100), () =>
+            Device.StartTimer(TimeSpan.FromMilliseconds(1000), () =>
             {
                 Device.BeginInvokeOnMainThread(() =>
                 {
@@ -53,6 +53,7 @@ namespace MediaElementDemos
         void OnStopButtonClicked(object sender, EventArgs args)
         {
             mediaElement.Stop();
+            positionSlider.Value = 0;
         }
 
         void OnPositionSliderValueChanged(System.Object sender, Xamarin.Forms.ValueChangedEventArgs e)
