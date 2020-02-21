@@ -6,6 +6,9 @@
              mc:Ignorable="d"
              x:Class="DualScreenDemos.DualViewMap">
 	<ContentView.Content>
-		<WebView x:Name="webView" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
-	</ContentView.Content>
+        <StackLayout>
+            <Label Text="Add your google API key to googlemap.html in order to see the map"></Label>
+		    <WebView x:Name="webView" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
+        </StackLayout>
+    </ContentView.Content>
 </ContentView>

@@ -6,10 +6,15 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="DualScreenDemos.ExtendCanvas">
-	<ContentPage.Content>
-		<Grid>
-			<WebView x:Name="webView" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
-			<SearchBar x:Name="searchBar" Placeholder="Find a place..." BackgroundColor="DarkGray" Opacity="0.8" HorizontalOptions="FillAndExpand" VerticalOptions="Start" />
-		</Grid>
-	</ContentPage.Content>
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Label Text="Add your google API key to googlemapsearch.html in order to see the map"></Label>
+            <WebView Grid.Row="1" x:Name="webView" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
+            <SearchBar Grid.Row="1" x:Name="searchBar" Placeholder="Find a place..." BackgroundColor="DarkGray" Opacity="0.8" HorizontalOptions="FillAndExpand" VerticalOptions="Start" />
+        </Grid>
+    </ContentPage.Content>
 </ContentPage>
